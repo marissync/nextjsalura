@@ -181,7 +181,6 @@ export default function FAQScreen({ faq }) {
           </Box>
         </Box>
       </Box>
-      <Footer /> 
     </Box>
   )
 }
