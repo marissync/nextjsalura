@@ -7,19 +7,21 @@ export default FAQScreen;
 // import NextLink from '../src/components/Link';
 // import PageTitle from '../src/components/PageTitle'
 
+//getStaticProps
 //o next por meio de SSR vai sincronizar o load disso com o do html = instantâneo
 //podemos usar p/ carregar a parte + importante da página
-//mesmo que caia uma bomba na api será gerado um json com o seu conteúdo no build e o site sempre vai ficar no ar
-export async function getStaticProps(){
+//mesmo que a api esteja fora será gerado um json com o seu conteúdo no build e o site sempre vai ficar no ar
+export async function getServerSideProps(){
     const FAQ_API_URL = "https:gist.githubusercontent.com/omariosouto/0ceab54bdd8182cbd1a4549d32945c1a/raw/578ad1e8e5296fa048e3e7ff6b317f7497b31ad9/alura-cases-faq.json";
     var faq = await fetch(FAQ_API_URL)
               .then((response) => response.json())
               .then((response) => response);
-
+    console.log('dei um fatch no faq')
     return{
         props: {
             faq
         }
+        //revalidate: 60, => se torna um ISR, vai atualizar em 60 segundos
     }
 }
 

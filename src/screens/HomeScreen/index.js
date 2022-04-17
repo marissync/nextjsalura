@@ -156,6 +156,15 @@ export default function HomeScreen() {
                   alt="Logo Alura"
                 />
               </Box>
+
+              <Box>
+                <Link href="/ssr">Ir para SSR</Link>
+              </Box>  
+
+              <Box>
+                <Link href="/ssg">Ir para SSG</Link>
+              </Box>    
+
               <Box
                 styleSheet={{
                   marginTop: {
